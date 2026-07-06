@@ -1,20 +1,20 @@
 import os
 
 video_urls = [
-    "R2_1j6j74hU",
-    "F3zW1j8r0L0",
-    "4W4H1xWp1hE"
+    "v2I4bX8bH4Q",
+    "fS8S7M-4drc",
+    "J1MhB8B1foc"
 ]
 
 output_dir = "research/youtube-transcripts"
 os.makedirs(output_dir, exist_ok=True)
 
-print("Memulai proses penarikan transkrip...\n")
+print("Memulai proses penarikan transkrip baru...\n")
 
 for video_id in video_urls:
     print(f"Mencari transkrip untuk video: {video_id}...")
-    # Kita eksekusi library-nya langsung lewat CLI terminal untuk bypass error class
-    command = f"python -m youtube_transcript_api {video_id} > {output_dir}/{video_id}.txt"
+    # Menggunakan CLI wrapper untuk langsung mendownload transkrip bersih
+    command = f"python -m youtube_transcript_api {video_id} --languages en > {output_dir}/{video_id}.txt"
     exit_code = os.system(command)
     
     if exit_code == 0:
